@@ -1,0 +1,40 @@
+.category-accordion {
+	img {
+		width: 18px;
+		height: 100%;
+	}
+
+	.accordion__body {
+		height: 0;
+		overflow: hidden;
+		transition: all 170ms linear;
+
+		.accordion__body_inner {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+
+			a {
+				color: #000;
+				transition: all 120ms linear;
+
+				&:hover {
+					color: green;
+					text-decoration: underline;
+				}
+			}
+
+			li {
+				transition: all 120ms linear;
+				&:active {
+					transform: scale(0.98);
+				}
+			}
+		}
+	}
+
+	.accordion__body_open {
+		padding: 23px 0;
+		height: 173px;
+	}
+}

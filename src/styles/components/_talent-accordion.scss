@@ -7,18 +7,16 @@
 		.accordion__body_inner {
 			display: flex;
 			flex-direction: column;
-			gap: 15px;
+			gap: 10px;
 
 			.accordion__rate {
-				display: flex;
-				align-items: center;
-				gap: 1rem;
-
 				label {
+					width: 100%;
 					display: flex;
 					align-items: center;
-					gap: 1rem;
+					gap: 10px;
 					cursor: pointer;
+					padding: 0.5rem 0;
 
 					img {
 						width: 23px;
@@ -30,7 +28,7 @@
 	}
 
 	.accordion__body_open {
-		padding: 20px 0;
-		height: 140px;
+		padding-top: 20px;
+		height: 155px;
 	}
 }

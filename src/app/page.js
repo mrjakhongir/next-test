@@ -1,15 +1,6 @@
-import CategoryAccordion from '@/components/CategoryAccordion';
-import LocationAccordion from '@/components/LocationAccordion';
-import TalentAccordion from '@/components/TalentAccordion';
-import TalentTypeAccordion from '@/components/TalentTypeAccordion';
+'use client';
 
-export default function Home() {
-	return (
-		<main>
-			<TalentAccordion />
-			<LocationAccordion />
-			<TalentTypeAccordion />
-			<CategoryAccordion />
-		</main>
-	);
+export default function Home({ searchParams }) {
+	// console.log(searchParams);
+	return <main>There will be populate search results</main>;
 }

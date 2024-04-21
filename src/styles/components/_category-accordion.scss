@@ -3,8 +3,26 @@
 		width: 18px;
 		height: 100%;
 	}
+	button {
+		color: #000;
+		transition: all 120ms linear;
+		background-color: transparent;
+		border: none;
+		font-size: 1rem;
+
+		&:hover {
+			cursor: pointer;
+			color: green;
+			text-decoration: underline;
+		}
+	}
+
+	.selected-category {
+		margin-top: 23px;
+	}
 
 	.accordion__body {
+		padding-top: 23px;
 		height: 0;
 		overflow: hidden;
 		transition: all 170ms linear;
@@ -13,16 +31,6 @@
 			display: flex;
 			flex-direction: column;
 			gap: 15px;
-
-			a {
-				color: #000;
-				transition: all 120ms linear;
-
-				&:hover {
-					color: green;
-					text-decoration: underline;
-				}
-			}
 
 			li {
 				transition: all 120ms linear;
@@ -34,7 +42,6 @@
 	}
 
 	.accordion__body_open {
-		padding: 23px 0;
-		height: 173px;
+		height: 150px;
 	}
 }

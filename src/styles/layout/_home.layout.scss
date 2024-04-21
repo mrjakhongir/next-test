@@ -1,0 +1,16 @@
+.home-layout {
+	width: 100%;
+	padding: 0 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-top: 2rem;
+
+	// height: 100vh;
+	.filtering-criterias {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.home-content {
+		display: flex;
+	}
+}

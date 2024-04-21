@@ -1,0 +1,86 @@
+{
+	"categories": [
+		{
+			"catId": 1,
+			"name": "All categories",
+			"key": "category",
+			"value": "all_categories"
+		},
+		{
+			"catId": 2,
+			"name": "Accounting & Consulting",
+			"key": "category",
+			"value": "accounting_and_consulting"
+		},
+		{
+			"catId": 3,
+			"name": "Admin Support",
+			"key": "category",
+			"value": "admin_support"
+		},
+		{
+			"catId": 4,
+			"name": "Customer Service",
+			"key": "category",
+			"value": "customer_service"
+		}
+	],
+	"talentTypes": [
+		{
+			"name": "Freelancers & Agencies",
+			"key": "talent_type",
+			"value": "freelancersAndAgencies"
+		},
+		{
+			"name": "Freelancers",
+			"key": "talent_type",
+			"value": "Freelancers"
+		},
+		{
+			"name": "Agencies",
+			"key": "talent_type",
+			"value": "agencies"
+		}
+	],
+	"ratings": [
+		{
+			"name": "Top Rated Plus",
+			"key": "top_rated_plus",
+			"value": "yes"
+		},
+		{
+			"name": "Top Rated",
+			"key": "top_rated_status",
+			"value": "top_rated"
+		},
+		{
+			"name": "Rising Talent",
+			"key": "rising_talent",
+			"value": "yes"
+		}
+	],
+	"regions": [
+		{
+			"title": "Regions",
+			"countriesList": [
+				"Africa",
+				"Americas",
+				"Antarctica",
+				"Europe",
+				"Asia",
+				"Oceania"
+			]
+		},
+		{
+			"title": "Countries",
+			"countriesList": [
+				"Uzbekistan",
+				"Albania",
+				"Algeria",
+				"USA",
+				"Germany",
+				"UK"
+			]
+		}
+	]
+}

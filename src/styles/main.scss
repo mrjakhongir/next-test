@@ -2,5 +2,12 @@
 @import 'components/location-accordion';
 @import 'components/category-accordion';
 @import 'components/talent-type-accordion';
+@import 'components/filtered-criterias';
+
+@import 'layout/sidebar';
+@import 'layout/content';
+@import 'layout/home.layout';
+
+@import 'pages/home';
 
 @import 'base/base';

@@ -20,11 +20,15 @@
 			border: 2px solid #eee;
 			padding: 10px;
 			border-radius: 5px;
-			overflow: hidden;
 
-			span {
-				color: #666;
+			> div {
+				max-height: 20px;
+				overflow: hidden;
 				padding-right: 10px;
+
+				span {
+					color: #666;
+				}
 			}
 
 			img {
@@ -93,15 +97,16 @@
 				}
 
 				li {
-					display: flex;
-					align-items: center;
-					gap: 15px;
-					padding: 7px 15px;
-
 					label {
+						display: block;
+						padding: 7px 15px 7px 15px;
 						width: 100%;
 						cursor: pointer;
 						user-select: none;
+
+						input {
+							margin-right: 1rem;
+						}
 					}
 
 					&:hover {

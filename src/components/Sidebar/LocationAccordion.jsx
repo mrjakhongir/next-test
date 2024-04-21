@@ -1,46 +1,48 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import Image from 'next/image';
-import caret from '../../public/caret.svg';
-import search from '../../public/search.svg';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
-const data = [
-	{
-		title: 'Regions',
-		countriesList: [
-			'Africa',
-			'Americas',
-			'Antarctica',
-			'Europe',
-			'Asia',
-			'Oceania',
-		],
-	},
-	{
-		title: 'Countries',
-		countriesList: ['Uzbekistan', 'Albania', 'Algeria', 'USA', 'Germany', 'UK'],
-	},
-];
+import Image from 'next/image';
+import caret from '../../../public/caret.svg';
+import search from '../../../public/search.svg';
+import data from '../../data';
+
+const regions = data.regions;
 
 function LocationAccordion() {
-	const [openBody, setOpenBody] = useState(false);
+	const router = useRouter();
+	const searchParams = useSearchParams();
+	const params = new URLSearchParams(searchParams);
+	const pathname = usePathname();
+
+	const [openBody, setOpenBody] = useState(true);
 	const [openLocations, setOpenLocations] = useState(false);
 	const [selectedRegions, setSelectedRegions] = useState([]);
 	const [filteredRegions, setFilteredRegions] = useState([]);
 
-	function selectLocation(e) {
-		const newLoc = e.target.dataset.country;
+	function selectLocation(data, region) {
+		const hasRegion = data.includes(region);
 
-		if (selectedRegions.includes(newLoc)) {
-			console.log(selectedRegions);
-			selectedRegions.splice(selectedRegions.indexOf(newLoc), 1);
-			const newArr = selectedRegions;
-			setSelectedRegions([]);
-			setSelectedRegions([...newArr]);
+		const updatedRegions = hasRegion
+			? data.filter((item) => item !== region)
+			: [...data, region];
+
+		return updatedRegions;
+	}
+
+	function setLocationParams(e) {
+		const newLoc = e.target.value;
+		const regions = selectLocation(selectedRegions, newLoc);
+		setSelectedRegions(regions);
+
+		const values = regions.map((el) => el).join(',');
+		if (values) {
+			params.set('loc', `${values}`);
 		} else {
-			setSelectedRegions([...selectedRegions, newLoc]);
+			params.delete('loc');
 		}
+		router.replace(`${pathname}?${params.toString()}`);
 	}
 
 	function findMatches(e) {
@@ -60,6 +62,16 @@ function LocationAccordion() {
 		}
 	}
 
+	useEffect(() => {
+		if (params.get('loc')) {
+			const selectedReg = params.get('loc').split(',');
+			setSelectedRegions(selectedReg);
+		} else {
+			setSelectedRegions([]);
+			setOpenLocations(false);
+		}
+	}, [searchParams]);
+
 	return (
 		<div className='location-accordion'>
 			<div className='accordion__label' onClick={() => setOpenBody(!openBody)}>
@@ -74,13 +86,20 @@ function LocationAccordion() {
 				<div
 					className='select-btn'
 					onClick={() => setOpenLocations((prevState) => !prevState)}>
-					<span>
+					<div>
 						{selectedRegions.length
 							? selectedRegions.map((region, index) =>
-									index > 0 ? ', ' + region : region
+									index > 0 ? (
+										<span key={index}>
+											{', '}
+											{region}
+										</span>
+									) : (
+										<span key={index}>{region}</span>
+									)
 							  )
 							: 'Select talent location'}
-					</span>
+					</div>
 					<Image src={caret} alt='caret' />
 				</div>
 				<div className={`locations ${openLocations && 'locations_open'}`}>
@@ -92,32 +111,38 @@ function LocationAccordion() {
 					</div>
 					<div>
 						<ul>
-							{data.map((el) => (
+							{regions.map((el) => (
 								<li className='locations__container' key={el.title}>
-									<p>{el.title}</p>
+									<p>{el?.title}</p>
 
 									<ul>
 										{filteredRegions.length
-											? el.countriesList
+											? el?.countriesList
 													.filter((region) => filteredRegions.includes(region))
 													.map((country) => (
 														<li key={country}>
-															<input type='checkbox' id={country} />
-															<label
-																htmlFor={country}
-																onClick={selectLocation}
-																data-country={country}>
+															<label htmlFor={country}>
+																<input
+																	type='checkbox'
+																	id={country}
+																	value={country}
+																	checked={selectedRegions.includes(country)}
+																	onChange={setLocationParams}
+																/>
 																{country}
 															</label>
 														</li>
 													))
-											: el.countriesList.map((country) => (
+											: el?.countriesList.map((country) => (
 													<li key={country}>
-														<input type='checkbox' id={country} />
-														<label
-															htmlFor={country}
-															onClick={selectLocation}
-															data-country={country}>
+														<label htmlFor={country}>
+															<input
+																type='checkbox'
+																id={country}
+																value={country}
+																checked={selectedRegions.includes(country)}
+																onChange={setLocationParams}
+															/>
 															{country}
 														</label>
 													</li>

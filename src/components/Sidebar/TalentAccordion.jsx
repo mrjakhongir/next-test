@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import caret from '../../../public/caret.svg';
 import rate from '../../../public/rate.svg';
-import data from '../../data';
+import data from '../../../public/data';
 
 const ratings = data.ratings;
 

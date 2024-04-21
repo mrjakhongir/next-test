@@ -6,7 +6,7 @@ import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import caret from '../../../public/caret.svg';
 import search from '../../../public/search.svg';
-import data from '../../data';
+import data from '../../../public/data';
 
 const regions = data.regions;
 

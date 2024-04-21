@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import caret from '../../../public/caret.svg';
-import data from '../../data';
+import data from '../../../public/data';
 
 const talentTypes = data.talentTypes;
 

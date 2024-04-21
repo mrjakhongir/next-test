@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 import caret from '../../../public/caret.svg';
-import data from '../../data';
+import data from '../../../public/data';
 
 const categories = data.categories;
 

@@ -2,12 +2,11 @@
 
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import data from '../data';
+import data from '../../public/data';
 
 const categories = data.categories;
 const ratings = data.ratings;
 const talentTypes = data.talentTypes;
-// const regions = data.regions.map((el) => el.countriesList);
 
 function FilteredCriterias() {
 	const [filteredCriterias, setFilteredCriterias] = useState([]);
